@@ -1,3 +1,4 @@
+# https://medium.com/@mike.reider/handle-bash-config-file-variables-like-a-pro-957dc9a838ed
 # https://gist.github.com/masukomi/e587aa6fd4f042496871
 
 function parse_yaml {
@@ -15,4 +16,9 @@ function parse_yaml {
          printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
       }
    }'
+}
+
+
+function verify_param() {
+  [[ -z “${!1}” ]] && echo $1 value not present in config.yaml, exiting.
 }
