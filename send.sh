@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# initialize variables from config.yaml
+# --------------------------------------------------
+# Run this script from computer A to send files to computer B
+# --------------------------------------------------
+
+# load config.yaml variables (yaml levels are separated by underscores)
 source _lib.sh
 eval $(parse_yaml config.yaml)
 
