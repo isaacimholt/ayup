@@ -7,6 +7,9 @@
 # load config.yaml variables (yaml levels are separated by underscores)
 source _lib.sh
 eval $(parse_yaml config.yaml)
+verify_param sender_rsync_source
+verify_param sender_rsync_destination
+
 
 rsync -avh \
     --progress \
