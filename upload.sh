@@ -10,7 +10,7 @@ eval $(parse_yaml config.yaml)
 verify_param uploader_youtube_source
 
 
-for f in $uploader_youtube_source
-do
+cd $uploader_youtube_source
+for f in *; do
     echo "Testing $f file..."
 done
