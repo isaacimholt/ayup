@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -exo pipefail
 
 # --------------------------------------------------
 # Run this script from computer B to send files to Youtube
