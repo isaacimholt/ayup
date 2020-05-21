@@ -7,9 +7,12 @@
 # load config.yaml variables (yaml levels are separated by underscores)
 source _lib.sh
 eval $(parse_yaml config.yaml)
+verify_param uploader_logs_folder
+verify_param uploader_youtube_privacy
 verify_param uploader_youtube_source
 
 
-for f in find $uploader_youtube_source -maxdepth 1 -type f; do
-    echo "Testing $f file..."
+for f in "$uploader_youtube_source"/*; do
+     echo "INFO - Checking $file"
+     [[ -e $file ]] || continue
 done
