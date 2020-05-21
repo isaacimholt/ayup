@@ -12,7 +12,7 @@ verify_param uploader_youtube_privacy
 verify_param uploader_youtube_source
 
 
-for f in "$uploader_youtube_source"/*; do
+for file in "$uploader_youtube_source"/*; do
      echo "INFO - Checking $file"
      [[ -e $file ]] || continue
 done
