@@ -13,6 +13,9 @@ verify_param uploader_youtube_source
 
 
 for file in "$uploader_youtube_source"/*.*; do
-     echo "INFO - Checking $file"
-     [[ -e $file ]] || continue
+    [[ -e $file ]] || continue
+    youtube-upload \
+        --privacy private \
+        --title "$(basename "($file)")" \
+        "($file)"    
 done
