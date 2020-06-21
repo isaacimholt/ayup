@@ -21,7 +21,7 @@ Most of these should already be present on both systems. It goes without saying 
 May need to install pyside on raspberry pi, which requires some other packages, see this answer: https://stackoverflow.com/a/51273560 and remove any packages from that list that are not found (e.g. `E: Unable to locate package qtmobility-dev`).
 
 ## Install
-1) clone this repository from https://github.com/isaacimholt/ayup.git
+- `git clone https://github.com/isaacimholt/ayup.git`
 
 ## Setup
 
@@ -45,3 +45,9 @@ uploader:
 
 ## Updating
 Enter the `ayup` directory and run `git pull`
+
+## Other Stuff
+
+- [ ] On Windows startup, run the `send.sh` script in WSL.
+- [ ] Cronjob wondershaper
+- [ ] Cronjob `upload.sh

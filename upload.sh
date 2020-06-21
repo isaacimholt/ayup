@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -exo pipefail
+# set -exo pipefail
 
 # --------------------------------------------------
 # Run this script from computer B to send files to Youtube
@@ -12,12 +12,16 @@ eval $(parse_yaml config.yaml)
 verify_param uploader_logs_folder
 verify_param uploader_youtube_privacy
 verify_param uploader_youtube_source
+verify_param uploader_youtube_source
 
 
 for file in "$uploader_youtube_source"/*.*; do
     [[ -e $file ]] || continue
+
     youtube-upload \
-        --privacy private \
-        --title "$(basename "($file)")" \
-        "($file)"    
-done
+    --privacy "$uploader_youtube_privacy" \
+    --title "$(basename "$file")" \
+    "$file" || exit 1
+
+    mv "$file" /media/pi/Maxtor/temp/ || exit 1
+done || exit 1
