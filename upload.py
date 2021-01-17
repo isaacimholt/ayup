@@ -5,7 +5,12 @@ from pathlib import Path
 
 import yaml
 
-logging.basicConfig(filename="upload.log", level=logging.INFO)
+logging.basicConfig(
+    filename="upload.log",
+    level=logging.INFO,
+    format="%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 
 with open(r"config.yaml") as file:
