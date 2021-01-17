@@ -5,7 +5,7 @@ from pathlib import Path
 
 import yaml
 
-logging.basicConfig(filename="upload.log", encoding="utf-8", level=logging.INFO)
+logging.basicConfig(filename="upload.log", level=logging.INFO)
 
 
 with open(r"config.yaml") as file:
