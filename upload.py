@@ -5,6 +5,9 @@ from pathlib import Path
 
 import yaml
 
+# ----------------------------------------
+# SET UP LOGGING
+# ----------------------------------------
 logging.basicConfig(
     filename="upload.log",
     level=logging.INFO,
@@ -12,18 +15,26 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
-
+# ----------------------------------------
+# LOAD CONFIG
+# ----------------------------------------
 with open(r"config.yaml") as file:
     # todo: requires PyYAML package
     config = yaml.load(file, Loader=yaml.FullLoader)
     source_dir = config["uploader"]["youtube"]["source"]
     privacy = config["uploader"]["youtube"]["privacy"]
 
+# ----------------------------------------
+# GET OLDEST FILES
+# ----------------------------------------
 files = sorted(
     (f for f in Path(source_dir).iterdir() if f.is_file()),
     key=os.path.getmtime,  # sort by oldest modification
 )
 
+# ----------------------------------------
+# UPLOAD FILES
+# ----------------------------------------
 for f in files:
 
     cmd = ["youtube-upload", "--privacy", privacy, "--title", f.stem, str(f)]
